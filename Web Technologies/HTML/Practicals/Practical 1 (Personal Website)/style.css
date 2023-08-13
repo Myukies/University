@@ -1,0 +1,164 @@
+body{
+  margin: 0px;
+  background-color: #99C1DE;
+  background-image: url(./images/background.jpg);
+  background-size: cover;
+}
+
+p{
+  margin: 0px;
+}
+
+img{
+      height: 240px;
+      width: 240px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 20px;
+    }
+
+.IntroHeading{
+      font-family: Helvetica;
+      font-size: 30px;
+      text-align: center;
+      padding-left: 120px;
+      padding-right:120px;
+    }
+
+.IntroFirst{
+      font-family: Helvetica;
+      font-size: 19px;
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-bottom: 30px;
+      text-align: center;
+    }
+
+.IntroSecond{
+      font-family: Helvetica;
+      font-size: 19px;
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-bottom: 50px;
+      text-align: center;
+    }
+
+.additional-things{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #f3cbe8;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+a{
+  color:black;
+  text-decoration: none;
+}
+
+.one{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #bee1e6;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.two{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #d5e3df;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.three{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #fad2e1;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.four{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #eec6ca;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.five{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #ded6d1;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.six{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #cde5d7;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.seven{
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+  height: 7vh;
+  background: #bcf4de;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

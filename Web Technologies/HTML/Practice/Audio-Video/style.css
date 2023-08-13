@@ -1,0 +1,27 @@
+body{
+    background: aquamarine;
+}
+
+.heading{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Helvetica;
+    text-align: center;
+    font-size: 30px;
+}
+
+.text{
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 25;
+}
+
+.audio{
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.video{
+    text-align: center;
+    padding-bottom: 40px;
+}

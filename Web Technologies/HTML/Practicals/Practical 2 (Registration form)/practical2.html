@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Helvetica; 
+        }
+
+        table {
+            margin: 20px auto;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body align = "center">
+    <h1>Registration Form</h1>
+    <form action="/submit_registration" method="post">
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td><input type="number" name="age" required></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <th>Date of Birth:</th>
+                <td><input type="date" name="dob" required></td>
+            </tr>
+            <tr>
+                <th>Gender:</th>
+                <td>
+                    <input type="radio" name="gender" value="Male" required>Male
+                    <input type="radio" name="gender" value="Female" required>Female
+                    <input type="radio" name="gender" value="Other" required>Other
+                </td>
+            </tr>
+            <tr>
+                <th>Hobbies:</th>
+                <td>
+                    <input type="checkbox" name="hobby" value="Reading">Reading
+                    <input type="checkbox" name="hobby" value="Traveling">Traveling
+                    <input type="checkbox" name="hobby" value="Sports">Sports
+                </td>
+            </tr>
+            <tr>
+                <th>Address:</th>
+                <td><textarea name="address" rows="4" cols="30" required></textarea></td>
+            </tr>
+            <tr>
+                <th>Country:</th>
+                <td>
+                    <select name="country" required>
+                        <option value="" disabled selected>Select your country</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">UK</option>
+                        <option value="Japan">Japan</option>
+                        <option value="India">India</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Required Service:</th>
+                <td><textarea name="service" rows="4" cols="30" required></textarea></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
