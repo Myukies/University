@@ -14,4 +14,4 @@ cropped_img = img[200:400, 150:300]
 plt.axis('off')
 plt.imshow(cropped_img)
 plt.show()
-plt.imsave("city_cropped.jpg", cropped_img)
+plt.imsave("Picture_cropped.jpg", cropped_img)
