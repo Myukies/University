@@ -7,7 +7,7 @@ buffer = []
 mutex = threading.Semaphore(1)
 empty = threading.Semaphore(BUFFER_SIZE)
 full = threading.Semaphore(0)
-terminate_flag = False  # Flag to signal thread termination
+terminate_flag = False  
 
 def producer():
     while not terminate_flag:
@@ -36,13 +36,10 @@ consumer_thread = threading.Thread(target=consumer)
 producer_thread.start()
 consumer_thread.start()
 
-# Let the threads run for a while
 time.sleep(3)
 
-# Signal threads to stop
 terminate_flag = True
 
-# Wait for threads to finish
 producer_thread.join()
 consumer_thread.join()
 
