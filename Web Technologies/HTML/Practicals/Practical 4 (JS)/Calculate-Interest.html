@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interest Calculator</title>
+    <script>
+        function calculateSimpleInterest() {
+            const principal = parseFloat(document.getElementById("principal").value);
+            const years = parseFloat(document.getElementById("years").value);
+            const rate = parseFloat(document.getElementById("rate").value);
+
+            if (isNaN(principal) || isNaN(years) || isNaN(rate)) {
+                alert("Invalid input. Please enter valid numbers.");
+            } else {
+                const interest = (principal * rate * years) / 100;
+                document.getElementById("simpleInterestResult").textContent = `Simple Interest: ${interest}`;
+            }
+        }
+
+        function calculateFinalAmount() {
+            const principal = parseFloat(document.getElementById("principal").value);
+            const years = parseFloat(document.getElementById("years").value);
+            const rate = parseFloat(document.getElementById("rate").value);
+            const interest = (principal * rate * years) / 100;
+            const finalAmount = principal + interest;
+
+            document.getElementById("finalAmountResult").textContent = `Final Amount: ${finalAmount}`;
+        }
+    </script>
+</head>
+<body align = "center">
+    <h1>Interest Calculator</h1>
+    
+    <label for="principal">Principle Amount:</label>
+    <input type="number" id="principal"><br><br>
+    
+    <label for="years">No. of Years:</label>
+    <input type="number" id="years"><br><br>
+    
+    <label for="rate">Rate of Interest:</label>
+    <input type="number" id="rate"><br><br>
+    
+    <button onclick="calculateSimpleInterest()">Calculate Simple Interest</button>
+    <p id="simpleInterestResult"></p><br>
+    
+    <button onclick="calculateFinalAmount()">Calculate Final Amount</button>
+    <p id="finalAmountResult"></p>
+</body>
+</html>

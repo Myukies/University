@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Programs</title>
+</head>
+<body>
+    <script>
+        const number = parseInt(prompt("Enter a number to check if it's odd or even:"));
+        
+        if (isNaN(number)) {
+            alert("Invalid input. Please enter a valid number.");
+        } else if (number % 2 === 0) {
+            alert("The number is even.");
+        } else {
+            alert("The number is odd.");
+        }
+    </script>
+    <script>
+        setTimeout(function() {
+            const n = parseInt(prompt("Enter a number till which you want to find the sum:"));
+            let sum = 0;
+            
+            if (isNaN(n)) {
+                alert("Invalid input. Please enter a valid number.");
+            } else {
+                for (let i = 1; i <= n; i++) {
+                    sum += i;
+                }
+                alert(`The sum of the first ${n} numbers is ${sum}.`);
+            }
+        }, 1500);
+    </script>
+    <script>
+        setTimeout(function() {
+            const number = parseInt(prompt("Enter a number for factorial:"));
+            
+            if (isNaN(number)) {
+                alert("Invalid input. Please enter a valid number.");
+            } else if (number < 0) {
+                alert("Factorial is not defined for negative numbers.");
+            } else {
+                let factorial = 1;
+                for (let i = 1; i <= number; i++) {
+                    factorial *= i;
+                }
+                alert(`The factorial of ${number} is ${factorial}.`);
+            }
+        }, 3000);
+    </script>
+    <script>
+        setTimeout(function() {
+            alert("All Programs Executed");
+        }, 4500);
+    </script>
+</body>
+</html>
