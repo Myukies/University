@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+<title>Counter with setTimeout and clearTimeout</title>
+<style>
+  body {
+    font-family: Helvetica;
+    text-align: center;
+    margin-top: 100px;
+    background-color: coral;
+  }
+  #counter {
+    font-size: 48px;
+    color: #333;
+  }
+  #buttons {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<h1>Counter</h1>
+<div id="counter">0</div>
+<div id="buttons">
+  <button id="startButton">Start</button>
+  <button id="stopButton">Stop</button>
+</div>
+
+<script>
+let counterValue = 0;
+let timeoutID;
+
+const counterElement = document.getElementById("counter");
+const startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton");
+
+function updateCounter() {
+  counterValue++;
+  counterElement.textContent = counterValue;
+  timeoutID = setTimeout(updateCounter, 1000);
+}
+
+startButton.addEventListener("click", () => {
+  if (!timeoutID) {
+    updateCounter();
+  }
+});
+
+stopButton.addEventListener("click", () => {
+  if (timeoutID) {
+    clearTimeout(timeoutID);
+    timeoutID = null;
+  }
+});
+</script>
+</body>
+</html>

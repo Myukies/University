@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<title>Delayed Alert</title>
+<style>
+  body {
+    font-family: Helvetica;
+    margin: 0;
+    padding-top: 100px;
+    background-color: thistle;
+  }
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body align = "center">
+<div class="container">
+  <h1>Delayed Alert</h1>
+  <button onclick="showDelayedAlert()">Show Alert in 3 Seconds</button>
+</div>
+<script>
+  function showDelayedAlert() {
+    setTimeout(function() {
+      alert("This is an alert box after a delay of 3 seconds.");
+    }, 3000); 
+  }
+</script>
+</body>
+</html>

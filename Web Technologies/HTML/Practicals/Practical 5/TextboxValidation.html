@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<title>Textbox Validation</title>
+<style>
+  body {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 20px;
+    background-color:cadetblue;
+  }
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body align = "center">
+<div class="container">
+  <h1>Textbox Validation</h1>
+  <form id="validationForm" onsubmit="return validateTextbox()">
+    <label for="textbox">Write some text in this textbox or you will get an error:</label>
+    <input type="text" id="textbox" name="textbox">
+    <p class="error-message" id="errorText"></p>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<script>
+  function validateTextbox() {
+    var textboxValue = document.getElementById("textbox").value;
+    var errorText = document.getElementById("errorText");
+
+    if (textboxValue.trim() === "") {
+      errorText.textContent = "Textbox cannot be empty";
+      return false;
+    } else {
+      errorText.textContent = "";
+      return true;
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<title>Number Validation</title>
+<style>
+  body {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 20px;
+    background-color: lemonchiffon;
+  }
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body align = "center">
+<div class="container">
+  <h1>Number Validation</h1>
+  <form id="validationForm" onsubmit="return validateNumber()">
+    <label for="number">Enter a number between 1 and 10:</label>
+    <input type="number" id="number" name="number" min="1" max="10">
+    <p class="error-message" id="errorText"></p>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<script>
+  function validateNumber() {
+    var numberValue = parseInt(document.getElementById("number").value);
+    var errorText = document.getElementById("errorText");
+
+    if (isNaN(numberValue) || numberValue < 1 || numberValue > 10) {
+      errorText.textContent = "Please enter a number between 1 and 10";
+      return false;
+    } else {
+      errorText.textContent = "";
+      return true;
+    }
+  }
+</script>
+</body>
+</html>
