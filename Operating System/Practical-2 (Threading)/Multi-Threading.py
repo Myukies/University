@@ -1,27 +1,26 @@
 import threading
+import time
 
-class FibonacciThread(threading.Thread):
-    def __init__(self, n):
-        super().__init__()
-        self.n = n
-        self.fib_sequence = [0, 1]
+def print_numbers():
+    for i in range(1, 9):
+        print(f"Number: {i}")
+        time.sleep(1.2)  
 
-    def run(self):
-        while len(self.fib_sequence) < self.n:
-            next_fib = self.fib_sequence[-1] + self.fib_sequence[-2]
-            self.fib_sequence.append(next_fib)
+def print_letters():
+    for letter in 'Threading':
+        print(f"Letter: {letter}")
+        time.sleep(1.2)  
 
-n = int(input("Enter your desired number: "))
-threads = []
+if __name__ == "__main__":
+    print("Main thread started.")
 
-for i in range(5):  
-    thread = FibonacciThread(n)
-    thread.start()
-    threads.append(thread)
+    t1 = threading.Thread(target=print_numbers)
+    t2 = threading.Thread(target=print_letters)
 
-for thread in threads:
-    thread.join()
+    t1.start()
+    t2.start()
 
-fib_sequence = sorted(set(fib for thread in threads for fib in thread.fib_sequence))
-print(f"Fibonacci sequence (multi-threaded) up to {n} numbers:", fib_sequence)
+    t1.join()
+    t2.join()
 
+    print("Main thread finished.")
