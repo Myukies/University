@@ -25,7 +25,7 @@ class Array:
     def merge_arrays(self, other_array):
         if isinstance(other_array, Array):
             self.array.extend(other_array.array)
-            print("Arrays merged successfully.")
+            print("Arrays successfully merged.")
         else:
             print("Invalid input. Cannot merge with a non-1D array.")
 
