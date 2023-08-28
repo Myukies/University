@@ -35,8 +35,6 @@ def encode(frequencies):
     for item in frequencies:
         p.put(item)
 
-    #invariant that order is ascending in the priority queue
-    #p.size() gives list of elements
     while p.qsize() > 1:
         left,right = p.get(),p.get()
         node = HuffmanNode(left,right)
