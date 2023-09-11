@@ -1,0 +1,82 @@
+class Node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.next = None
+
+
+class HashTable:
+    def __init__(self, size):
+        self.size = size
+        self.table = [None] * size
+
+    def hash_function(self, key):
+        return hash(key) % self.size
+
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        new_node = Node(key, value)
+
+        if self.table[index] is None:
+            self.table[index] = new_node
+        else:
+            current = self.table[index]
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+    def get(self, key):
+        index = self.hash_function(key)
+        current = self.table[index]
+        while current is not None:
+            if current.key == key:
+                return current.value
+            current = current.next
+        return None
+
+    def traverse(self):
+        for index in range(self.size):
+            current = self.table[index]
+            while current is not None:
+                print(f"Key: {current.key}, Value: {current.value}")
+                current = current.next
+
+    def delete(self, key):
+        index = self.hash_function(key)
+        current = self.table[index]
+        prev = None
+        while current is not None:
+            if current.key == key:
+                if prev:
+                    prev.next = current.next
+                else:
+                    self.table[index] = current.next
+                return
+            prev = current
+            current = current.next
+
+
+# Example Usage:
+if __name__ == "__main__":
+    hash_table = HashTable(10)
+
+    # Insertion
+    hash_table.insert(5, 'Apple')
+    hash_table.insert(2, 'Banana')
+    hash_table.insert(15, 'Cherry')
+    hash_table.insert(25, 'Grape')
+    hash_table.insert(12, 'Orange')
+
+    # Traversal
+    print("Hash Table:")
+    hash_table.traverse()
+
+    # Deletion
+    hash_table.delete(2)
+
+    # Traversal after deletion
+    print("\nHash Table after deletion:")
+    hash_table.traverse()
+
+    # Get value for a key
+    print("Value for key 15:", hash_table.get(15))
