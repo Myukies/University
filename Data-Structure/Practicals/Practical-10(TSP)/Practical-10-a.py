@@ -25,8 +25,8 @@ if __name__ == "__main__":
         [0, 10, 15, 20],
         [10, 0, 35, 25],
         [15, 35, 0, 30],
-        [20, 25, 30, 0]
-    ]
+        [20, 25, 30, 0]]
+    
     start_vertex = 0
-
     print(travelling_sales_person(graph, start_vertex))
+    
