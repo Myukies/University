@@ -4,7 +4,7 @@ from itertools import permutations
 V = 4
 
 def TravellingSalesPerson(graph, s):
-
+    
     vertex = []
     for i in range(V):
         if i != s:

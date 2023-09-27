@@ -39,7 +39,7 @@ writer_threads = [threading.Thread(target=writer, args=(i,)) for i in range(2)]
 for thread in reader_threads: thread.start()
 for thread in writer_threads: thread.start()
 
-time.sleep(10)
+time.sleep(5)
 
 terminate_flag = True  
 

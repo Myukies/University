@@ -1,6 +1,6 @@
 import numpy as np
 
-a = np.mat("3 -2; 1 0")
+a = np.mat("7 3; 3 -1")
 print("Matrix a:")
 print()
 print(a)

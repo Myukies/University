@@ -4,7 +4,6 @@ class Node:
         self.value = value
         self.next = None
 
-
 class HashTable:
     def __init__(self, size):
         self.size = size
@@ -55,28 +54,21 @@ class HashTable:
             prev = current
             current = current.next
 
-
-# Example Usage:
 if __name__ == "__main__":
     hash_table = HashTable(10)
 
-    # Insertion
     hash_table.insert(5, 'Apple')
     hash_table.insert(2, 'Banana')
     hash_table.insert(15, 'Cherry')
     hash_table.insert(25, 'Grape')
     hash_table.insert(12, 'Orange')
 
-    # Traversal
     print("Hash Table:")
     hash_table.traverse()
 
-    # Deletion
     hash_table.delete(2)
 
-    # Traversal after deletion
     print("\nHash Table after deletion:")
     hash_table.traverse()
 
-    # Get value for a key
     print("Value for key 15:", hash_table.get(15))
