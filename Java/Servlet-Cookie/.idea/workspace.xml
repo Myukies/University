@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a37a10e6-5898-4d25-bd62-6217ac8a75ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../JSP username/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JSP username/second.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JSP username/welcome.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaSwingCalculator/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Methods/ListInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Methods/MapInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Methods/SetInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practical-1/UsrDefException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Servlet/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Servlet/main.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Servlet/main_two.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentResumeSwing/StudentResumeApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Defined-Exception/CustomExceptionExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../User-Defined-Exception/InvalidAgeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Technologies/HTML/Practicals/Practical-20/P20.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Technologies/HTML/Practicals/Practical-20/P20.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2d3bIRCkVy1IP2vvnCZ3gm6l99T" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/myukies/Documents/University/Java/Servlet-Cookie"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a37a10e6-5898-4d25-bd62-6217ac8a75ac" name="Changes" comment="" />
+      <created>1709239629165</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709239629165</updated>
+    </task>
+    <servers />
+  </component>
+</project>
