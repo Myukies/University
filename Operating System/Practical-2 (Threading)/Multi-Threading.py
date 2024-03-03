@@ -1,26 +1,24 @@
 import threading
 import time
 
-def print_numbers():
-    for i in range(1, 9):
-        print(f"Number: {i}")
-        time.sleep(1.2)  
+def thread_function(thread_id):
+    print(f"Thread {thread_id} is starting...")
+    time.sleep(2)  
+    print(f"Thread {thread_id} is finishing...")
 
-def print_letters():
-    for letter in 'Threading':
-        print(f"Letter: {letter}")
-        time.sleep(1.2)  
+def main():
+    num_threads = 3
+    threads = []
+
+    for i in range(num_threads):
+        thread = threading.Thread(target=thread_function, args=(i+1,))
+        threads.append(thread)
+        thread.start()
+
+    for thread in threads:
+        thread.join()
+
+    print("Main thread is finishing...")
 
 if __name__ == "__main__":
-    print("Main thread started.")
-
-    t1 = threading.Thread(target=print_numbers)
-    t2 = threading.Thread(target=print_letters)
-
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
-
-    print("Main thread finished.")
+    main()

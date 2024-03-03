@@ -1,14 +1,17 @@
+import threading
 import time
 
+def thread_function():
+    print("Thread is starting...")
+    time.sleep(2) 
+    print("Thread is finishing...")
+
 def main():
+    thread = threading.Thread(target=thread_function)
+    thread.start()
+    thread.join()
 
-    n = int(input("Enter the number of threads: "))
-    print("Main thread started.")
-    for i in range(1, n+1):
-        print(f"Main thread: {i}")
-        time.sleep(1)  
-
-    print("Main thread finished.")
+    print("Main thread is finishing...")
 
 if __name__ == "__main__":
     main()

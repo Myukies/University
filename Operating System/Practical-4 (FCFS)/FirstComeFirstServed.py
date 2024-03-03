@@ -1,49 +1,39 @@
-import threading
-import time
+def fcfs(processes):
+    total_waiting_time = 0
+    total_turnaround_time = 0
+    current_time = 0
 
-readers_count = 0
-resource = "Initial data"
-readers_count_lock = threading.Lock()
-resource_lock = threading.Lock()
-terminate_flag = False
+    print("Process\tBurst Time\tWaiting Time\tTurnaround Time")
+    for process in processes:
+        print(f"{process['id']}\t{process['burst_time']}\t\t", end='')
 
-def reader(reader_id):
-    global readers_count, resource, terminate_flag
-    while not terminate_flag:
-        with readers_count_lock:
-            readers_count += 1
-            if readers_count == 1:
-                resource_lock.acquire()
-        
-        print(f"Reader {reader_id} read: {resource}")
-        
-        with readers_count_lock:
-            readers_count -= 1
-            if readers_count == 0:
-                resource_lock.release()
-        
-        time.sleep(1)
+        waiting_time = current_time - process['arrival_time']
+        if waiting_time < 0:
+            waiting_time = 0
 
-def writer(writer_id):
-    global resource, terminate_flag
-    while not terminate_flag:
-        with resource_lock:
-            resource = f"New data written by Writer {writer_id}"
-            print(f"Writer {writer_id} wrote: {resource}")
-        
-        time.sleep(2)
+        print(f"{waiting_time}\t\t", end='')
 
-reader_threads = [threading.Thread(target=reader, args=(i,)) for i in range(3)]
-writer_threads = [threading.Thread(target=writer, args=(i,)) for i in range(2)]
+        turnaround_time = waiting_time + process['burst_time']
+        print(turnaround_time)
 
-for thread in reader_threads: thread.start()
-for thread in writer_threads: thread.start()
+        total_waiting_time += waiting_time
+        total_turnaround_time += turnaround_time
 
-time.sleep(5)
+        current_time += process['burst_time']
 
-terminate_flag = True  
+    avg_waiting_time = total_waiting_time / len(processes)
+    avg_turnaround_time = total_turnaround_time / len(processes)
+    print(f"\nAverage Waiting Time: {avg_waiting_time}")
+    print(f"Average Turnaround Time: {avg_turnaround_time}")
 
-for thread in reader_threads: thread.join()
-for thread in writer_threads: thread.join()
 
-print("Program finished.")
+if __name__ == "__main__":
+    processes = [
+        {"id": 1, "arrival_time": 0, "burst_time": 5},
+        {"id": 2, "arrival_time": 1, "burst_time": 3},
+        {"id": 3, "arrival_time": 2, "burst_time": 8},
+        {"id": 4, "arrival_time": 3, "burst_time": 6},
+        {"id": 5, "arrival_time": 4, "burst_time": 4}
+    ]
+
+    fcfs(processes)
