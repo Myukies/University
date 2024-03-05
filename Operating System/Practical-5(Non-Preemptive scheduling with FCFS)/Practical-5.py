@@ -1,20 +1,22 @@
-def fcfs(processes):
-    current_time = 0
+process_list = [
+    {"name": "P1", "arrival_time": 0, "burst_time": 10},
+    {"name": "P2", "arrival_time": 2, "burst_time": 5},
+    {"name": "P3", "arrival_time": 4, "burst_time": 8},
+    {"name": "P4", "arrival_time": 6, "burst_time": 3}
+]
 
-    print("FCFS Scheduling:")
-    for process in processes:
-        print(f"Process {process['pid']} starts at time {max(current_time, process['arrival_time'])}.")
-        current_time = max(current_time, process['arrival_time']) + process['burst_time']
-        print(f"Process {process['pid']} ends at time {current_time}.")
+current_time = 0
+total_waiting_time = 0
 
-def main():
-    processes = [
-        {'pid': 1, 'arrival_time': 0, 'burst_time': 6},
-        {'pid': 2, 'arrival_time': 2, 'burst_time': 3},
-        {'pid': 3, 'arrival_time': 4, 'burst_time': 4},
-        {'pid': 4, 'arrival_time': 6, 'burst_time': 5},
-    ]
-    fcfs(processes)
+print("Process\tStart Time\tEnd Time\tWaiting Time")
 
-if __name__ == "__main__":
-    main()
+for process in process_list:
+    waiting_time = max(0, current_time - process["arrival_time"])
+    total_waiting_time += waiting_time
+
+    current_time += process["burst_time"]
+
+    print(f"{process['name']}\t{max(current_time - process['burst_time'], process['arrival_time'])}\t\t{current_time}\t\t{waiting_time}")
+
+average_waiting_time = total_waiting_time / len(process_list)
+print("\nAverage Waiting Time:", average_waiting_time)

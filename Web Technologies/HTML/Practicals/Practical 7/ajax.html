@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJAX Example</title>
+<script>
+  // Function to handle AJAX request on mouseover
+  function fetchDataOnMouseover() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        document.getElementById("output").innerHTML = xhr.responseText;
+      }
+    };
+    xhr.open("GET", "data.txt", true);
+    xhr.send();
+  }
+
+  // Function to handle AJAX request on button click
+  function fetchDataOnClick() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        document.getElementById("output").innerHTML = xhr.responseText;
+      }
+    };
+    xhr.open("GET", "data.txt", true);
+    xhr.send();
+  }
+</script>
+</head>
+<body>
+  <!-- Button for AJAX request on click -->
+  <button onclick="fetchDataOnClick()">Fetch Data on Click</button>
+
+  <!-- Element for AJAX request on mouseover -->
+  <div onmouseover="fetchDataOnMouseover()">Hover over this to fetch data</div>
+
+  <!-- Output area -->
+  <div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Fetch with Ajax</title>
+    <style>
+        .image-container {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Image Fetch with Ajax</h1>
+
+    <div class="image-container" onmouseover="fetchAndDisplayImage('Picture_1.jpg')">Hover over this text for image 1</div>
+    <div class="image-container" onmouseover="fetchAndDisplayImage('Picture_2.jpg')">Hover over this text for image 2</div>
+
+    <div id="imageDisplay">
+        <img id="displayedImg" src="" alt="">
+    </div>
+
+    <script>
+        function fetchAndDisplayImage(imageSource) {
+            var displayedImg = document.getElementById('displayedImg');
+            var imagePath = imageSource;
+
+            fetch(imagePath)
+                .then(response => response.blob())
+                .then(blob => {
+                    var objectURL = URL.createObjectURL(blob);
+                    displayedImg.src = objectURL;
+                })
+                .catch(error => console.error('Error fetching image:', error));
+        }
+    </script>
+</body>
+</html>
