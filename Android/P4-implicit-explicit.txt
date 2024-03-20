@@ -1,0 +1,199 @@
+MainActivity
+
+
+package com.example.practical3
+
+import android.content.Intent
+import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.btnClick_explicit_intent
+import kotlinx.android.synthetic.main.activity_main.btnClick_implicit_intent
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Explicit Intent
+        btnClick_explicit_intent.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
+
+        // Implicit Intent
+        btnClick_implicit_intent.setOnClickListener {
+
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:1234567890")
+            startActivity(intent)
+
+            /*val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com"))
+            startActivity(intent)*/
+        }
+}
+}
+
+
+MainActivity2
+
+package com.example.practical3
+
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main2.confirmationTextView
+import kotlinx.android.synthetic.main.activity_main2.saveButton
+import kotlinx.android.synthetic.main.activity_main2.usernameEditText
+
+class MainActivity2 : AppCompatActivity()
+{
+    private lateinit var sharedPreferences: SharedPreferences
+    private val sharedPrefFile = "my_sharedprefs_file"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main2)
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+
+        // Check if data is already saved in SharedPreferences
+        if (sharedPreferences.contains("username")) {
+            // If data is present, display it
+            val savedUsername = sharedPreferences.getString("username", "")
+            usernameEditText.setText(savedUsername)
+        }
+
+        // Save button click listener
+        saveButton.setOnClickListener {
+            saveData()
+        }
+    }
+
+    private fun saveData() {
+        // Get username from EditText
+        val username = usernameEditText.text.toString()
+
+        // Save username to SharedPreferences
+        val editor = sharedPreferences.edit()
+        editor.putString("username", username)
+        editor.apply()
+
+        // Display confirmation message
+        confirmationTextView.text = "Data saved successfully"
+    }
+
+}
+
+
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearBottom"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Practical 3 by Siddhant S071"
+        android:textSize="48sp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:id="@+id/linearBottom"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp">
+
+        <Button
+            android:id="@+id/btnClick_explicit_intent"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/explicit_intent"/>
+
+        <Button
+            android:id="@+id/btnClick_implicit_intent"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/implicit_intent" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+
+activity_main2.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Activity 2,\nvia Explicit Intent!!"
+        android:textSize="34sp"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="italic" />
+
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter your username" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usernameEditText"
+            android:layout_marginTop="16dp"
+            android:text="Save"/>
+
+        <TextView
+            android:id="@+id/confirmationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/white"
+            android:layout_below="@id/saveButton"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+1. Create Kotlin class/file in same folder as MainActivity.kt
+
+FILE_ONE.kt (loops)
+
+fun main() {
+    // Example of if-else control structure
+    val num = 10
+    if (num > 0) {
+        println("Number is positive")
+    } else if (num < 0) {
+        println("Number is negative")
+    } else {
+        println("Number is zero")
+    }
+
+    // Example of when control structure
+    val day = "Monday"
+    val message = when (day) {
+        "Monday" -> "Today is Monday"
+        "Tuesday" -> "Today is Tuesday"
+        "Wednesday" -> "Today is Wednesday"
+        "Thursday" -> "Today is Thursday"
+        "Friday" -> "Today is Friday"
+        "Saturday" -> "Today is Saturday"
+        "Sunday" -> "Today is Sunday"
+        else -> "Invalid day"
+    }
+    println(message)
+
+    // Example of loop
+    println("Loop Example:")
+    for (i in 1..5) {
+        println(i)
+    }
+
+    // Example of while loop
+    println("While Loop Example:")
+    var i = 0
+    while (i < 5) {
+        println(i)
+        i++
+    }
+
+    // Example of do-while loop
+    println("Do-While Loop Example:")
+    var j = 0
+    do {
+        println(j)
+        j++
+    } while (j < 5)
+}
+
+
+
+FILE_TWO.kt (Object_Oriented Concepts)
+
+package com.batch_1.practice_1
+
+// Car.kt
+class Car(val brand: String, var speed: Int) {
+    // Method to increase the speed of the car
+    fun accelerate(acceleration: Int) {
+        speed += acceleration
+        println("$brand is now running at $speed km/h")
+    }
+
+    // Method to decrease the speed of the car
+    fun decelerate(deceleration: Int) {
+        speed -= deceleration
+        println("$brand is now running at $speed km/h")
+    }
+}
+
+fun main() {
+    // Create instances of Car class
+    val car1 = Car("Toyota", 50)
+    val car2 = Car("Honda", 60)
+
+    // Call methods on car instances
+    car1.accelerate(20)
+    car2.decelerate(10)
+}

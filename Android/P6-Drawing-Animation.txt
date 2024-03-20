@@ -1,0 +1,195 @@
+DrawingView
+
+class DrawingView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+
+    private val path = Path()
+    private val paint = Paint().apply {
+        color = Color.BLACK
+        isAntiAlias = true
+        strokeWidth = 10f
+        style = Paint.Style.STROKE
+        strokeJoin = Paint.Join.ROUND
+        strokeCap = Paint.Cap.ROUND
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.drawPath(path, paint)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val x = event.x
+        val y = event.y
+
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> path.moveTo(x, y)
+            MotionEvent.ACTION_MOVE -> path.lineTo(x, y)
+            MotionEvent.ACTION_UP -> {
+                path.lineTo(x, y)
+                invalidate()
+            }
+        }
+        return true
+    }
+
+    fun clearDrawing() {
+        path.reset()
+        invalidate()
+    }
+}
+
+
+MainActivity
+
+package com.example.practical6
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.Button
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val animation_rtl: Animation = AnimationUtils.loadAnimation(this, R.anim.left_to_right)
+        val animation_ltr: Animation = AnimationUtils.loadAnimation(this, R.anim.right_to_left)
+        val animation_bounce: Animation = AnimationUtils.loadAnimation(this, R.anim.bounce)
+
+
+        val bounceButton: Button = findViewById(R.id.bounceButton)
+        val normalButton: Button = findViewById(R.id.normalButton)
+        val leftToRight_Button: Button = findViewById(R.id.leftToRight_Button)
+        val rightToLeft_Button: Button = findViewById(R.id.rightToLeft_Button)
+
+        bounceButton.setOnClickListener {
+            // start the animation on click of button
+            bounceButton.startAnimation(animation_bounce)
+        }
+
+        normalButton.setOnClickListener {
+
+        }
+
+        leftToRight_Button.setOnClickListener {
+            // start the animation on click of button
+            leftToRight_Button.startAnimation(animation_ltr)
+        }
+
+        rightToLeft_Button.setOnClickListener {
+            // start the animation on click of button
+            rightToLeft_Button.startAnimation(animation_rtl)
+        }
+    }
+}
+
+
+Practical_B
+
+package com.example.practical6
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.AttributeSet
+import android.widget.Button
+import android.widget.FrameLayout
+
+class Practical_B : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_practical_b)
+
+        val drawing_view_container = findViewById<FrameLayout>(R.id.drawing_view_container)
+        val clear_button = findViewById<Button>(R.id.clear_button)
+
+        val drawingView = DrawingView(this@Practical_B, null)
+        drawing_view_container.addView(drawingView)
+
+        clear_button.setOnClickListener {
+            drawingView.clearDrawing()
+        }
+
+
+    }
+}
+
+
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bounceButton"
+        android:backgroundTint="@color/black"
+        android:textColor="#ffffff"
+        android:text="Let's Bounce"
+        android:layout_width="200dp"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:id="@+id/normalButton"
+        android:backgroundTint="@color/red"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/bounceButton"
+        android:text="Normal Button"
+        android:layout_width="200dp"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:id="@+id/leftToRight_Button"
+        android:backgroundTint="@color/black"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/normalButton"
+        android:text="Left to right animation"
+        android:layout_width="200dp"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:id="@+id/rightToLeft_Button"
+        android:backgroundTint="@color/black"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/leftToRight_Button"
+        android:text="Right to Left animation"
+        android:layout_width="200dp"
+        android:layout_height="80dp"/>
+
+</RelativeLayout>
+
+
+activity_practical_b.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Practical_B">
+
+    <FrameLayout
+        android:id="@+id/drawing_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"/>
+
+</RelativeLayout>
